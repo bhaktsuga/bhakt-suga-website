@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3.5 group">
               <div className="relative h-11 w-12 rounded-full overflow-hidden border border-gold/40 bg-black">
-                <img src="/images/logo.png" alt="Bhakt Suga Logo" className="w-full h-full object-cover" />
+                <img src="/logo.png" alt="Bhakt Suga Logo" className="w-full h-full object-cover" />
               </div>
               <div className="leading-none">
                 <span className="block font-[family-name:var(--font-playfair)] text-lg font-bold tracking-widest text-white uppercase">BHAKT SUGA</span>

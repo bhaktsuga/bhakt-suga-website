@@ -22,7 +22,7 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3.5 group">
             <div className="relative h-12 w-12 rounded-full overflow-hidden border border-gold/40 shadow-inner bg-black">
-              <img src="/images/logo.png" alt="Bhakt Suga Logo" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="/logo.png" alt="Bhakt Suga Logo" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="leading-none">
               <span className="block font-[family-name:var(--font-playfair)] text-xl font-bold tracking-wider text-ink uppercase">BHAKT SUGA</span>

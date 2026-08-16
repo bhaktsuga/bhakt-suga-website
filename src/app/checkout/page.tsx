@@ -241,7 +241,7 @@ export default function CheckoutPage() {
 
             <div className="bg-gradient-to-br from-[#100d16] to-[#1c1824] rounded-3xl p-6 text-parchment border border-gold/30 shadow-xl relative overflow-hidden">
               <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-x-12 translate-y-12">
-                <img src="/images/logo.png" alt="" className="w-48 h-48 object-contain" />
+                <img src="/logo.png" alt="" className="w-48 h-48 object-contain" />
               </div>
               <p className="text-[10px] uppercase tracking-[0.25em] text-gold-soft font-bold mb-1">Authentic Guarantee</p>
               <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold mb-3">Bhakt Suga Promise</h3>

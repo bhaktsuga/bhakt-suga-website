@@ -147,7 +147,7 @@ export default async function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gold/20">
-                <img src="/images/logo.png" alt="Bhakt Suga Brand Philosophy" className="w-full h-full object-cover bg-black p-10 hover:scale-105 transition-transform duration-700" />
+                <img src="/logo.png" alt="Bhakt Suga Brand Philosophy" className="w-full h-full object-cover bg-black p-10 hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="absolute -bottom-6 -right-4 bg-ink text-parchment rounded-3xl p-6 sm:p-8 shadow-xl max-w-xs border border-gold/30">
                 <p className="font-[family-name:var(--font-cormorant)] text-2xl text-gold-soft mb-1">Our Heritage</p>
