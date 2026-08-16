@@ -219,7 +219,7 @@ export default async function HomePage() {
       {/* 6. Contact & Devotional Footer section */}
       <section id="contact" className="bg-[#120f18] text-parchment py-24 border-t border-gold/20 relative overflow-hidden">
         <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none transform translate-x-12 translate-y-12">
-          <img src="/images/logo.png" alt="" className="w-96 h-96 object-contain" />
+          <img src="/logo.png" alt="" className="w-96 h-96 object-contain" />
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
