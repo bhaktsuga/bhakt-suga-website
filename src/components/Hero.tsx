@@ -12,7 +12,7 @@ export default function Hero() {
       name: "Shree Ram Perfume",
       brand: "BHAKT SUGA",
       price: 300,
-      image: "/images/shree_ram_perfume.png",
+      image: "/shree-ram-perfume.png",
       size: "20 ML",
     });
   };
