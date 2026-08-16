@@ -20,7 +20,7 @@ export default async function HomePage() {
     originalPrice: "450.00",
     description: "Inspired by devotion, purity, and Indian fragrance traditions, Shree Ram Perfume is a premium blend of natural, holy ingredients. This 100% alcohol-free premium fragrance offers an extraordinarily rich, long-lasting aroma.",
     size: "20 ML",
-    image: "/images/shree-ram-perfume.png",
+    image: "/shree-ram-perfume.png",
     rating: 4.9,
     reviewCount: 108,
   };
