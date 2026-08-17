@@ -28,6 +28,8 @@ export default async function HomePage() {
   // Parse fields
   const parsedProduct = {
     ...product,
+    image: [ "/images/shree-ram-1.jpg","/images/shree-ram-2.jpg",
+  ],
     price: typeof product.price === "string" ? parseFloat(product.price) : product.price,
     originalPrice: product.originalPrice ? (typeof product.originalPrice === "string" ? parseFloat(product.originalPrice) : product.originalPrice) : null,
     rating: product.rating ? parseFloat(product.rating as any) : 4.9,
