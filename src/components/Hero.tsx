@@ -22,7 +22,7 @@ export default function Hero() {
       {/* Background with custom overlay gradients for luxury aesthetic */}
       <div className="absolute inset-0">
         <img 
-          src="/images/shree_ram_perfume.png" 
+          src="/shree-ram-perfume.png" 
           alt="Shree Ram Perfume Premium Indian Fragrance" 
           className="w-full h-full object-cover opacity-35 mix-blend-luminosity scale-105"
         />
@@ -90,7 +90,7 @@ export default function Hero() {
           <div className="lg:col-span-5 hidden lg:block">
             <div className="relative mx-auto w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gold/20 bg-gradient-to-b from-navy/40 to-[#0d0a11]">
               <img 
-                src="/images/shree_ram_perfume.png" 
+                src="/shree-ram-perfume.png" 
                 alt="Shree Ram Perfume Bottle and Box" 
                 className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700 ease-out" 
               />
