@@ -86,7 +86,10 @@ export default async function HomePage() {
                   brand: parsedProduct.brand,
                   price: parsedProduct.price,
                   originalPrice: parsedProduct.originalPrice,
-                  image: parsedProduct.image,
+                  image: 
+                  Array.isArray(parsedProduct.image) ?
+                  parsedProduct.image[0] :
+                  parsedProduct.image,
                   category: "Premium Indian Perfume",
                   rating: parsedProduct.rating,
                   reviewCount: parsedProduct.reviewCount ?? 108,
