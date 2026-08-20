@@ -21,7 +21,13 @@ export default function ProductDetailClient({ product, reviews, isEmbed = false 
   const [added, setAdded] = useState(false);
 
   const images = product.images && Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+const goPrevious = () => {
+  setSelectedImage((prev) => (prev - 1 + images.length) % images.length);
+};
 
+const goNext = () => {
+  setSelectedImage((prev) => (prev + 1) % images.length);
+};
   const handleAdd = () => {
     for (let i = 0; i < qty; i++) {
       add({
@@ -181,20 +187,58 @@ export default function ProductDetailClient({ product, reviews, isEmbed = false 
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Images Section */}
-          <div className="relative">
-            <div className="aspect-square rounded-3xl overflow-hidden bg-[#0d0a11] shadow-2xl border border-gold/20">
-              <img src={images[selectedImage]} alt={product.name} className="w-full h-full object-cover transition-opacity duration-300" />
-            </div>
-            {images.length > 1 && (
-              <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
-                {images.map((img: string, i: number) => (
-                  <button key={i} onClick={() => setSelectedImage(i)} aria-label={`Image ${i + 1}`} className={`shrink-0 w-16 h-16 rounded-xl overflow-hidden ring-2 transition-all ${selectedImage === i ? "ring-gold shadow-md" : "ring-transparent opacity-60 hover:opacity-100"}`}>
-                    <img src={img} alt="" className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+<div className="relative">
+  <div className="relative aspect-square rounded-3xl overflow-hidden bg-[#0d0a11] shadow-2xl border border-gold/20 flex items-center justify-center">
+    <img
+      src={images[selectedImage]}
+      alt={product.name}
+      className="w-full h-full object-contain transition-opacity duration-300"
+    />
+
+    {images.length > 1 && (
+      <>
+        <button
+          onClick={goPrevious}
+          aria-label="Previous image"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-ink hover:bg-white transition"
+        >
+          <ChevronLeft size={22} />
+        </button>
+
+        <button
+          onClick={goNext}
+          aria-label="Next image"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-ink hover:bg-white transition"
+        >
+          <ChevronRight size={22} />
+        </button>
+      </>
+    )}
+  </div>
+
+  {images.length > 1 && (
+    <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
+      {images.map((img: string, i: number) => (
+        <button
+          key={i}
+          onClick={() => setSelectedImage(i)}
+          aria-label={`Image ${i + 1}`}
+          className={`shrink-0 w-16 h-16 rounded-xl overflow-hidden ring-2 transition-all ${
+            selectedImage === i
+              ? "ring-gold shadow-md"
+              : "ring-transparent opacity-60 hover:opacity-100"
+          }`}
+        >
+          <img
+            src={img}
+            alt=""
+            className="w-full h-full object-contain bg-white"
+          />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
 
           {/* Details Section */}
           {contentMarkup}
