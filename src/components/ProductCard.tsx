@@ -9,6 +9,7 @@ export interface ProductData {
   price: number;
   originalPrice?: number | null;
   image: string;
+  images?: string[];
   category: string;
   rating: number;
   reviewCount: number;

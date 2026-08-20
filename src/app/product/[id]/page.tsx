@@ -19,6 +19,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
   const mappedProduct = {
     ...product,
+    image: idNum === 1 ? "/images/shree-ram-1.jpg" : product.image, images: idNum === 1 ? ["/images/shree-ram-1.jpg", "/images/shree-ram-2.jpg"] : product.images,
     price: parseFloat(product.price as any),
     originalPrice: product.originalPrice ? parseFloat(product.originalPrice as any) : null,
     rating: product.rating ? parseFloat(product.rating as any) : 0,

@@ -60,7 +60,7 @@ export default function FilterClient({ initialCategory, initialSearch, initialFe
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-7 mb-24">
           {display.map((p) => (
-            <ProductCard key={p.id} product={{ id: p.id, name: p.name, brand: p.brand, price: p.price, originalPrice: p.originalPrice, image: p.image, category: p.category, rating: p.rating, reviewCount: p.reviewCount, size: p.size, newArrival: !!p.newArrival, featured: !!p.featured }} />
+            <ProductCard key={p.id} product={{ id: p.id, name: p.name, brand: p.brand, price: p.price, originalPrice: p.originalPrice, image: p.image, images: p.images, category: p.category, rating: p.rating, reviewCount: p.reviewCount, size: p.size, newArrival: !!p.newArrival, featured: !!p.featured, }} />
           ))}
         </div>
       )}

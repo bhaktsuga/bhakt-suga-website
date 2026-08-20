@@ -20,7 +20,7 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
   }
 
   const rawRows = conditions.length ? await db.select().from(products).where(and(...conditions) as any) : await db.select().from(products);
-  const rows = rawRows.map((r: any) => ({ ...r, price: parseFloat(r.price), originalPrice: r.originalPrice ? parseFloat(r.originalPrice) : null })) as any;
+  const rows = rawRows.map((r: any) => ({ ...r, image: r.id === 1 ? "/images/shree-ram-1.jpg" : r.image, images: r.id === 1 ? ["/images/shree-ram-1.jpg", "/images/shree-ram-2.jpg"] : r.images, price: parseFloat(r.price), originalPrice: r.originalPrice ? parseFloat(r.originalPrice) : null })) as any;
 
   const counts = {
     all: (await db.select().from(products)).length,
