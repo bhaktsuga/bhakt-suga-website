@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useCart } from "@/components/CartProvider";
-import { ArrowLeft, Check, Lock, ShieldAlert, Sparkles, QrCode, ClipboardCheck } from "lucide-react";
+import { ArrowLeft, Check, Lock, ShieldAlert, Sparkles,} from "lucide-react";
 import Link from "next/link";
 
 export default function CheckoutPage() {
@@ -23,11 +23,19 @@ export default function CheckoutPage() {
 
   const [copied, setCopied] = useState(false);
 
-  const handleCopyUPI = () => {
-    navigator.clipboard.writeText("bhaktsuga@upi");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const handleUPIPayment = () => {
+  const upiId = "faisalali81006@oksbi";
+  const amount = total.toFixed(2);
+  const payeeName = "Bhakt Suga";
+
+  const upiLink =
+    `upi://pay?pa=${encodeURIComponent(upiId)}` +
+    `&pn=${encodeURIComponent(payeeName)}` +
+    `&am=${encodeURIComponent(amount)}` +
+    `&cu=INR`;
+
+  window.location.href = upiLink;
+};
 
   if (items.length === 0 && !submitted) {
     return (
@@ -165,24 +173,28 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              <div className="border-t border-ivory/60 pt-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="h-6 w-6 rounded-full bg-gold/10 text-gold-dark flex items-center justify-center font-bold text-xs">2</span>
-                  <h2 className="font-[family-name:var(--font-cormorant)] text-2xl text-ink font-semibold">UPI Payment Only</h2>
-                </div>
+             <div className="bg-[#fffdf9] border-2 border-dashed border-gold/40 rounded-2xl p-5 mb-6 text-center space-y-5">
+  <p className="text-xs font-bold text-amber-950 uppercase tracking-widest bg-amber-500/10 py-1.5 px-3 rounded-full inline-block">
+    Pay via UPI App
+  </p>
 
-                <div className="bg-[#fffdf9] border-2 border-dashed border-gold/40 rounded-2xl p-5 mb-6 text-center space-y-5">
-                  <p className="text-xs font-bold text-amber-950 uppercase tracking-widest bg-amber-500/10 py-1.5 px-3 rounded-full inline-block">Scan to Pay via any UPI App</p>
-                  
-                  <div className="relative mx-auto w-48 h-48 rounded-xl overflow-hidden shadow-md border border-ivory bg-white p-2">
-                    <img src="/images/qr_code.png" alt="UPI Scan to Pay QR Code" className="w-full h-full object-contain" />
-                  </div>
+  <button
+    type="button"
+    onClick={handleUPIPayment}
+    className="w-full rounded-xl bg-ink px-6 py-4 text-sm font-bold uppercase tracking-wider text-parchment transition hover:bg-navy"
+  >
+    Pay ₹{total.toLocaleString("en-IN")} via UPI
+  </button>
 
-                  <div className="space-y-2">
-                    <p className="text-xs text-stone">UPI ID: <span className="font-bold text-ink bg-cream/70 px-2.5 py-1 rounded-md text-sm border border-ivory inline-flex items-center gap-1.5">bhaktsuga@upi <button type="button" onClick={handleCopyUPI} className="text-gold-dark hover:text-ink transition-colors" title="Copy UPI ID">{copied ? <span className="text-[10px] text-emerald-600 font-bold">Copied!</span> : <ClipboardCheck size={14} />}</button></span></p>
-                    <p className="text-[11px] text-amber-950/80 max-w-sm mx-auto leading-relaxed font-light">GPay, PhonePe, Paytm, BHIM, or any banking app accepted. Please pay exactly <span className="font-bold text-ink">₹{total.toLocaleString("en-IN")}</span>.</p>
-                  </div>
-                </div>
+  <p className="text-[11px] text-amber-950/80 max-w-sm mx-auto leading-relaxed font-light">
+    GPay, PhonePe, Paytm, BHIM, or any compatible UPI app accepted.
+    Please pay exactly{" "}
+    <span className="font-bold text-ink">
+      ₹{total.toLocaleString("en-IN")}
+    </span>.
+  </p>
+</div>
+                
 
                 <div className="bg-rose-50 border border-rose-100 rounded-2xl p-4 flex gap-3 text-rose-950 mb-6">
                   <ShieldAlert className="text-rose-600 shrink-0" size={18} />
@@ -197,7 +209,7 @@ export default function CheckoutPage() {
                   <input required id="utr" pattern="^[0-9a-zA-Z]{12}$" value={form.utr} onChange={e => setForm({ ...form, utr: e.target.value })} className="w-full rounded-xl bg-parchment/50 border border-ivory px-4 py-3 text-sm text-ink font-mono focus:outline-none focus:ring-2 focus:ring-gold/30 uppercase tracking-widest transition-shadow placeholder:tracking-normal placeholder:font-sans" placeholder="E.g., 619283748291" maxLength={12} />
                   <p className="text-[10px] text-stone">You can find this 12-digit number in your UPI app transaction receipt.</p>
                 </div>
-              </div>
+            
 
               {error && (
                 <div className="p-4 bg-rose-50 border border-rose-200 text-rose-700 rounded-2xl text-xs font-semibold leading-relaxed">
